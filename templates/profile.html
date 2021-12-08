@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block content %}
+<!-- {% with messages = get_flashed_messages(with_categories = true) %}
+   {% if messages %}
+      {% for category, message in messages %}
+          <div class = "alert alert-{{ category }}">
+               {{ message }}
+
+          </div>
+
+       {% endfor %}
+   {% endif %}
+{% endwith %} -->
+<div class="bodyContainer">
+    <h1 style="margin-bottom:24px;">{{name}}'s Profile Page</h1>
+    {% if orginalUser %}
+    <a id='editProfile' class="submitButton" style="color:white;" role="button" aria-pressed="true">Edit Profile</a> {% endif %}
+    <div class="listDivider" style="margin-top: 24px;">
+        <h4>General Info</h4>
+    </div>
+    <div class="row" style="width:55%; margin-top: 24px; margin-bottom:24px; margin-left: 24px;">
+        <div class="col">
+            <img src={{ url_for( 'static', filename=picture )}} width="250px">
+        </div>
+        <div class="col">
+            <p><b>Username:&nbsp; &nbsp; </b> {{username}}</p>
+            <p><b>Name:&nbsp; &nbsp;</b> {{name}}</p>
+            <p><b>Nickname: &nbsp; &nbsp;</b>{{nickname}}</p>
+            <p><b>School: &nbsp; &nbsp;</b> {{school}}</p>
+            <p><b>Major: &nbsp; &nbsp;</b>{{major}}</p>
+            <p><b>Bio:  &nbsp; &nbsp;</b>{{bio}}</p>
+        </div>
+    </div>
+    <div class="listDivider">
+        <h4>Contact Info</h4>
+    </div>
+    <div class="row" style="width:80%; margin-top: 24px; margin-bottom:24px; margin-left: 24px;">
+        <div class="col">
+            <p><b>Email: &nbsp; &nbsp;</b>{{email}}</p>
+            <p><b>Phone Number: &nbsp; &nbsp;</b>{{phone}}</p>
+        </div>
+        <div class="col">
+            <p><b>Personal ZOOM Meeting ID: &nbsp; &nbsp;</b><br>{{ZOOMMeetingID}}<br>{% if show %}<a id={{ZOOMMeetingID}} class='zoom'><button type='button' class="submitButton">Join Meeting</button></a>{% endif %} </p>
+        </div>
+        <div class="col">
+            <p><b>Twitter: &nbsp; &nbsp;</b><a href="https://www.twitter.com/{{twitter}}">{{twitter}}</a></p>
+            <p><b>Instagram: &nbsp; &nbsp;</b><a href="https://www.instagram.com/{{instagram}}">{{instagram}}</a></p>
+            <p><b>Facebook: &nbsp; &nbsp;</b><a href="https://www.facebook.com/{{facebook}}">{{facebook}}</a></p>
+            <p><b>Snapchat: &nbsp; &nbsp;</b>{{snapchat}}</p>
+            <p><b>LinkedIn: &nbsp; &nbsp;</b>{{linkedin}}</p>
+        </div>
+
+    </div>
+    {% endblock %}

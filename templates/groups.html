@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% block content %}
+<div class="bodyContainer">
+
+
+    <h1>{{name}} StudySpot</h1>
+
+
+    <div class="listDivider" style="margin-bottom: 12px;">
+        <h4>Group Members: </h4>
+    </div>
+    <ul>
+        {% for member in members %}
+        <li>
+            <a style="a:hover {color: #003C17; background-color: transparent;text-decoration: underline;}" id={{member}} class='profile-other-user'>{{member}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    <div class="listDivider">
+        <h4>Group Documents: </h4>
+    </div>
+
+    <div class="formContainer">
+        <form method="POST" id="upload" enctype="multipart/form-data">
+            <p>
+                <label for="inputFile">File input</label>
+                <input style="background-color: #ececec; background-clip: padding-box; border: 0px solid #ced4da;" type="file" name="inputFile">
+                <input id={{name}} class='uploadFile submitButton' style="padding: 6px 20px; font-size: 12px; font-weight: bold; text-transform: none;" type="submit" value="Upload File"></a>
+            </p>
+        </form>
+    </div>
+
+    <ul style="margin-top: 24px; margin-bottom: 24px;">
+        {% for file in files %}
+        <li>
+            <div style="display: flex;">
+                {{ file[1] }} &nbsp;&nbsp;
+                <form method="POST" enctype="multipart/form-data">
+                    <a class="button_download" id={{file[0]}}><button type='button' style="background-color: #003C17; border: none; color: #ffffff; font-size: 10px; border-radius: 8px; padding: 6px 7px; text-align: center; text-decoration: none; display: inline-block; font-family: none;"><i class="fa fa-download"></i></button></a>
+                </form>&nbsp;
+                <form method="POST" enctype="multipart/form-data">
+                    <a class="button_delete" id="{{file[1]}}+{{file[0]}}"><button type='button' style="background-color: #990000; border: none; color: #ffffff; font-size: 10px; border-radius: 8px; padding: 3px 8px; text-align: center; text-decoration: none; display: inline-block; font-family: none;">&#x2718</button></a>
+                </form>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="listDivider">
+        <h4>Group Events:</h4>
+    </div>
+
+    <div class="formContainer">
+        <form id='addEvent' method="POST">
+            <p>
+                <label for="description">Event Description: </label>
+                <input type="text" size="40" name="description"><br>
+                <label for="date">Date: </label>
+                <input type="date" name="date"> &nbsp;&nbsp;&nbsp;
+                <label for="date">Time: </label>
+                <input type="time" name="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id={{name}} class='addEvent submitButton' style="padding: 6px 20px; font-size: 12px; font-weight: bold; text-transform: none;" type="submit" value="Add Event">
+            </p>
+
+        </form>
+    </div>
+    <ul style="margin-top: 24px; margin-bottom: 24px;">
+        {% for event in events |sort(attribute=2)%}
+        <li>
+            {% if event[4] %} <strike> {% endif %}{{ event[1] }}  ({{ event[2] }} @ {{ event[3] }})   {% if event[4] %} </strike>{% endif %} &nbsp;&nbsp;
+            <a id={{event[0]}} class="button_complete"><button type='button' style="background-color: #003C17; border: none; color: #ffffff; font-size: 10px; border-radius: 8px; padding: 3px 8px; text-align: center; text-decoration: none; display: inline-block; font-family: none;">&#x2714</button></a>
+            <a id={{event[0]}} class="event_delete"><button type='button' style="background-color: #990000; border: none; color: #ffffff; font-size: 10px; border-radius: 8px; padding: 3px 8px; text-align: center; text-decoration: none; display: inline-block; font-family: none;">&#x2718</button></a>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    <div class="listDivider">
+        <h4>Group ToDos:</h4>
+    </div>
+
+    <div class="formContainer">
+        <form id='addTask' method="POST">
+            <p><label for="content">Add Task Here: </label>
+                <input type="text" name="content">
+                <input id={{name}} class='addTask submitButton' style="padding: 6px 20px; font-size: 12px; font-weight: bold; text-transform: none;" type="submit" value="Add Task"></p>
+        </form>
+    </div>
+    <ul style="margin-top: 24px; margin-bottom: 24px;">
+        {% for task in tasks %}
+        <li>
+            {% if task[2] %} <strike> {% endif %}{{ task[1] }} {% if task[2] %} </strike>{% endif %} &nbsp;&nbsp;
+            <a id={{task[0]}} class="task_complete"><button type='button' style="background-color: #003C17; border: none; color: #ffffff; font-size: 10px; border-radius: 8px; padding: 3px 8px; text-align: center; text-decoration: none; display: inline-block; font-family: none;">&#x2714</button></a>
+            <a id={{task[0]}} class="task_delete"><button type='button' style="background-color: #990000; border: none; color: #ffffff; font-size: 10px; border-radius: 8px; padding: 3px 8px; text-align: center; text-decoration: none; display: inline-block; font-family: none;">&#x2718</button></a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

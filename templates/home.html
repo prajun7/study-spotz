@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="bodyContainer">
+    <h1>{{name}}'s Home Page</h1>
+    <img src={{ url_for( 'static', filename=picture )}} width="125px">
+
+    <div class="listDivider" style="margin-bottom: 12px;">
+        <h4>Your Groups</h4>
+    </div>
+    <ul>
+        {% for group in groups %}
+        <li><a href={{group[0]}}>{{group[1]}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

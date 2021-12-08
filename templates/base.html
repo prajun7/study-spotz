@@ -1,0 +1,245 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>StudySpotz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href={{url_for("static", filename='login.css')}}> -->
+
+    <link rel="stylesheet" type="text/css" href="/static/base.css?q=6586429540">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div style="background-color: #003C17;"><br></div>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-between static-top" style="background-color: #ececec;">
+        <a class="navbar-brand" id='home'><img src="/static/studyspotz_logo.png" width="125px" alt="StudySpotz Logo"></a>
+        <button class="navbar-toggler" style="background-color:#ffffff;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form id='goUser' class="form-inline my-2 my-lg-0">
+                <input id='searchUsers' class="form-control mr-sm-2" type="search" placeholder="Search Users" aria-label="Search" results="0">
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <!-- <a class="nav-link" id='goHome' role='link'>Home<span class="sr-only">(current)</span></a></li> -->
+                    <a class="nav-link" id='goHome' role='link'>Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" id='groups'>Create Groups</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id='settings' id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id='profile'>Profile</a>
+                        <a class="dropdown-item" id='logout'>Logout</a>
+                </li>
+            </ul>
+            </div>
+    </nav>
+    <div style="background-color: #FFD700; height: 6px;"></div>
+    {% block content %} {% endblock %}
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left footerMid">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <h3>StudySpotz</h3>
+                    <p>StudySpots is a collaborative effort by <br>Deeptha Srirangam, Prajun Trital, & Jonathan Perz.</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">School Links:</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://www.uab.edu/home" style="color: #ffffff;">UAB</a>
+                        </li>
+                        <li>
+                            <a href="https://www.uab.edu/cas/computerscience/" style="color: #ffffff;">UAB Computer Science Department</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="background-color: #FFD700; color: #333333;">© 2020 Copyright - StudySpotz
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            var url = window.location.href.split('/');
+            var username = url[url.length - 1].replace('?', '');
+            $('.uploadFile').click(function(event) {
+                var group = $(this).attr('id')
+                var new_url = '/upload/group/user'.replace('group', group)
+                new_url = new_url.replace('user', username)
+                document.getElementById('upload').setAttribute('action', new_url)
+            });
+            $('.uploadA').click(function(event) {
+                var new_url = '/uploadAvatar/user'
+                new_url = new_url.replace('user', username)
+                document.getElementById('upload').setAttribute('action', new_url)
+            });
+            $('.button_download').click(function(event) {
+                var id = $(this).attr('id')
+                var new_url = '/download/group/user/id'.replace('id', id)
+                new_url = new_url.replace('user', username)
+                new_url = new_url.replace('group', url[url.length - 2])
+                document.getElementById(id).setAttribute('href', new_url)
+            });
+            $('.button_delete').click(function(event) {
+                var name = $(this).attr('id');
+                var fileName = name.split('+')[0]
+                var fileID = name.split("+")[1]
+                console.log(name)
+                console.log(fileName)
+                console.log(fileID)
+                var new_url = '/delete/group/user/id'
+                new_url = new_url.replace('user', username)
+                new_url = new_url.replace('group', url[url.length - 2])
+                new_url = new_url.replace('id',fileID)
+                document.getElementById(name).setAttribute('href', new_url)
+            });
+            $('.button_complete').click(function(event) {
+                var id = $(this).attr('id');
+                var new_url = '/doneEvent/group/user/id'.replace('id', id)
+                new_url = new_url.replace('user', username)
+                new_url = new_url.replace('group', url[url.length - 2])
+                document.getElementById(id).setAttribute('href', new_url)
+            });
+            $('.event_delete').click(function(event) {
+                var id = $(this).attr('id');
+                var new_url = '/deleteEvent/group/user/id'.replace('id', id)
+                new_url = new_url.replace('user', username)
+                new_url = new_url.replace('group', url[url.length - 2])
+                $(this).attr('href', new_url)
+            });
+            $('.addEvent').click(function(event) {
+                var group = $(this).attr('id')
+                var new_url = '/addEvent/group/user'.replace('group', group)
+                new_url = new_url.replace('user', username)
+                document.getElementById('addEvent').setAttribute('action', new_url)
+            });
+            $('.addTask').click(function(event) {
+                var group = $(this).attr('id')
+                var new_url = '/task/group/user'.replace('group', group)
+                new_url = new_url.replace('user', username)
+                document.getElementById('addTask').setAttribute('action', new_url)
+            });
+            $('.task_complete').click(function(event) {
+                var id = $(this).attr('id');
+                var new_url = '/doneTask/group/user/id'.replace('id', id)
+                new_url = new_url.replace('user', username)
+                new_url = new_url.replace('group', url[url.length - 2])
+                document.getElementById(id).setAttribute('href', new_url)
+            });
+            $('.task_delete').click(function(event) {
+                var id = $(this).attr('id');
+                var new_url = '/deleteTask/group/user/id'.replace('id', id)
+                new_url = new_url.replace('user', username)
+                new_url = new_url.replace('group', url[url.length - 2])
+                $(this).attr('href', new_url)
+            });
+            $('#home').click(function(event) {
+                var new_url = '/home/user'.replace('user', username)
+                document.getElementById('home').setAttribute('href', new_url)
+            });
+            $('#goHome').click(function(event) {
+                var new_url = '/home/user'.replace('user', username)
+                document.getElementById('goHome').setAttribute('href', new_url)
+            });
+            $('#groups').click(function(event) {
+                var new_url = '/groups/user'.replace('user', username)
+                document.getElementById('groups').setAttribute('href', new_url)
+            });
+            $('#connections').click(function(event) {
+                var new_url = '/connections/user'.replace('user', username)
+                document.getElementById('connections').setAttribute('href', new_url)
+            });
+            $('#notifications').click(function(event) {
+                var new_url = '/notifications/user'.replace('user', username)
+                document.getElementById('notifications').setAttribute('href', new_url)
+            });
+            $('#profile').click(function(event) {
+                var new_url = '/profile/user/orginaluser'.replace('user', username)
+                new_url = new_url.replace('orginaluser', username)
+                document.getElementById('profile').setAttribute('href', new_url)
+            });
+            $('#logout').click(function(event) {
+                var new_url = '/logout'
+                document.getElementById('logout').setAttribute('href', new_url)
+            });
+
+            $('#settings').click(function(event) {
+                var new_url = 'settings/user'.replace('user', username)
+                document.getElementById('settings').setAttribute('href', new_url)
+            });
+            $('#editProfile').click(function(event) {
+                var new_url = '/profile_update/user'.replace('user', username)
+                document.getElementById('editProfile').setAttribute('href', new_url)
+            });
+            $('.profile-other-user').click(function(event) {
+                var toUser = $(this).attr('id')
+                var new_url = '/profile/user/orginaluser'.replace('user', toUser)
+                new_url = new_url.replace('orginaluser', username)
+                document.getElementById(toUser).setAttribute('href', new_url)
+            });
+            $('.zoom').click(function(event) {
+                var zoomid = $(this).attr('id');
+                var new_url = '/zoom/user/zoomid'.replace('zoomid', zoomid)
+                new_url = new_url.replace('user', username)
+                document.getElementById(zoomid).setAttribute('target', '_blank')
+                document.getElementById(zoomid).setAttribute('href', new_url)
+            });
+            $('#searchUsers').keypress(function(event) {
+                var keyPressed = event.which;
+                if (keyPressed == 13) {
+                    var toUser = $('#searchUsers').val();
+                    var url = '/profile/toUser/user'.replace('toUser', toUser)
+                    url = url.replace('user', username)
+                    document.getElementById('goUser').setAttribute('action', url)
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

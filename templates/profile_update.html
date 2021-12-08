@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block content %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="/static/base.js"></script>
+<section>
+    <div class="bodyContainer">
+        <div class="row">
+            <div class="col">
+                <h1>Update Profile</h1>
+                <p>Please update the required information and click submit.</p>
+            </div>
+        </div>
+        
+            <img class="profile-pic" src="/static/profileimage.png" />
+            <form id='uploadA' method="POST" enctype="multipart/form-data">
+                <div name='inputFile' class="upload-button">
+                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </div>
+                <input name='inputFile' class="file-upload" type="file" accept="image/*" style="background-color: #ffffff; background-clip: padding-box; border: 0px solid #ced4da;"></input>
+                <input id=avatarUpload class="uploadFile submitButton" style="padding: 6px 20px; font-size: 12px; font-weight: bold; text-transform: none;" type="submit" value="Upload Avatar"></a>
+            </form>
+    
+       
+        <form>
+            <div class="listDivider">
+                <h4>General Info</h4>
+            </div>
+            <div class="row align-items-center" style="width:60%;">
+                <div class="col mt-4">
+                    <input type="text" name="name" class="form-control" placeholder="Name">
+                </div>
+            </div>
+            <div class="row align-items-center" style="width:60%;">
+                <div class="col mt-4">
+                    <input type="text" name="nickname" class="form-control" placeholder="Nickname">
+                </div>
+            </div>
+            <div class="row align-items-center" style="width:60%;">
+                <div class="col mt-4">
+                    <input type="text" name="school" class="form-control" placeholder="School">
+                </div>
+            </div>
+            <div class="row align-items-center" style="width:60%;">
+                <div class="col mt-4">
+                    <input type="text" name="major" class="form-control" placeholder="Major (if applicable)">
+                </div>
+            </div>
+            <div class="row align-items-center" style="width:60%;">
+                <div class="col mt-4">
+                    <textarea class="form-control" id="bio" name="bio" rows="5" cols="33" placeholder="Enter a brief bio here..."></textarea>
+                </div>
+            </div>
+            <div class="listDivider">
+                <h4>Contact Info</h4>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone (format: 123-456-7890)">
+                </div>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="text" name="ZOOMMeetingID" class="form-control" placeholder="ZOOM Meeting ID">
+                </div>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="text" name="twitterID" class="form-control" placeholder="Twitter ID">
+                </div>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="text" name="instagramID" class="form-control" placeholder="Instagram ID">
+                </div>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="text" name="facebookID" class="form-control" placeholder="Facebook ID">
+                </div>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="text" name="snapchatID" class="form-control" placeholder="Snapchat ID">
+                </div>
+            </div>
+            <div class="row align-items-center mt-4" style="width:60%;">
+                <div class="col">
+                    <input type="text" name="linkedinID" class="form-control" placeholder="Linkedin ID">
+                </div>
+            </div>
+            <button class="btn btn-primary mt-4 submitButton">Submit</button>
+        </form>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

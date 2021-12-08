@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="/static/createAcc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-between static-top" style="background-color: #FFFFFF;">
+        <a class="navbar-brand"><img src="/static/studyspotz_logo.png" width="150px" alt="StudySpotz Logo"></a>
+    </nav>
+
+    <div class="container right-panel-active" id="container">
+        <div class="form-container sign-up-container">
+
+            <form action="">
+                <h1>Create Account</h1>
+                
+                <p id='error'>{{errorMessage}}</p>
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="username" placeholder="UserName">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="text" name="question" placeholder="What was your first car?">
+                <button class="ghostgreen">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with your groupz please login with your personal info</p>
+                    <button class="ghost" id="signIn"> <a href = {{ url_for('login') }}>Sign In</a></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
