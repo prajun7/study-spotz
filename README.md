@@ -1,6 +1,7 @@
 **Project Title:** StudySpotz
 StudySpotz is a collaborative portal where the users can work on a project collaboratively by creating groups which includes video calling, file uploads, events and to do list features.
 
+I reuploaded the files into my GitHub as our original files were in University's GitLab and were private.
 
 **Prerequisites:**
 Download and Install latest version of Anaconda and Python 
