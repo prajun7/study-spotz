@@ -27,15 +27,15 @@ Create an account using the email and password.
 
 
 **Built With:**
-Flask - The Web Framework Used
-PostgreSQl - The database
-HTML - The Stanadard Markup Language
-CSS - Document's style
-Javascripts - Text-based Programming Language
+- Flask - The Web Framework Used
+- PostgreSQl - The database
+- HTML - The Stanadard Markup Language
+- CSS - Document's style
+- Javascripts - Text-based Programming Language
 
 
 **Contribution:**
-Deeptha Srirangam, Jonathan Perz and Prajun Trital.
+- Deeptha Srirangam, Jonathan Perz and Prajun Trital.
 
 It is not an individual project. Thank you to all the team members for your contribution.
 
