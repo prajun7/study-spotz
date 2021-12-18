@@ -37,7 +37,7 @@ Create an account using the email and password.
 **Contribution:**
 - Deeptha Srirangam, Jonathan Perz and Prajun Trital.
 
-It is not an individual project. Thank you to all the team members for your contribution..
+It is not an individual project. Thank you to all the team members for your contribution.
 
 **2020 Copyright - StudySpotz**
 
