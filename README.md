@@ -36,5 +36,5 @@ Create an account using the email and password.
 
 It is not an individual project. Thank you to all the team members for your contribution.
 
-**2020 Copyright - StudySpotz**
+*2020 Copyright - StudySpotz*
 
